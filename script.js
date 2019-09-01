@@ -10,8 +10,6 @@ function makeRows(rows, cols) {
   };
 };
 
-
-
 makeRows(16, 16);
 var btns = document.querySelectorAll('#btn');
 btns.forEach((btn) => {
@@ -23,7 +21,18 @@ btns.forEach((btn) => {
 });
 
 function reset(){
+  var height= prompt("Enter height(in boxes)");
+  var width= prompt("Enter height(in boxes)");
   btns.forEach((btn) => {
-    btn.style.cssText = 'background: white'; 
+    btn.remove();
   });
+  makeRows(height,width);
+  btns = document.querySelectorAll('#btn');
+  btns.forEach((btn) => {
+
+  // and for each one we add a 'click' listener
+  btn.addEventListener('click', () => {
+    btn.style.cssText = 'background: black'; 
+  });
+});
 }
